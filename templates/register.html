@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Register</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Segoe UI;
+        background: url("{{ url_for('static', filename='background.jpg') }}");
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+      }
+
+      .box {
+        background: rgba(255, 255, 255, 0.9);
+        width: 350px;
+        margin: 120px auto;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px black;
+      }
+
+      input {
+        width: 80%;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 8px;
+        border: 1px solid gray;
+      }
+
+      button {
+        background: #1e3d59;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #ff6e40;
+      }
+
+      a {
+        text-decoration: none;
+        color: #1e3d59;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <h2>Register</h2>
+
+      <form action="/register" method="post">
+        <input type="text" name="name" placeholder="Enter Name" /><br />
+        <input type="email" name="email" placeholder="Enter Email" /><br />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Password"
+        /><br />
+
+        <button type="submit">Register</button>
+      </form>
+
+      <br />
+
+      <a href="/login">Already have account?</a>
+    </div>
+  </body>
+</html>

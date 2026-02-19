@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Prediction</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Segoe UI;
+        background: url("{{ url_for('static', filename='background.jpg') }}");
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+      }
+
+      .navbar {
+        background: #1e3d59;
+        padding: 15px;
+        color: white;
+        font-size: 20px;
+      }
+
+      .navbar a {
+        color: white;
+        float: right;
+        margin-left: 20px;
+        text-decoration: none;
+        background: #ff6e40;
+        padding: 8px 15px;
+        border-radius: 8px;
+      }
+
+      .upload-box {
+        background: rgba(255, 255, 255, 0.9);
+        width: 400px;
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px black;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 25px;
+        font-weight: bold;
+        color: red;
+      }
+
+      .card-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        width: 200px;
+        margin: 10px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 0 15px black;
+      }
+
+      .card img {
+        width: 100%;
+        border-radius: 15px 15px 0 0;
+      }
+
+      .label {
+        padding: 10px;
+        font-weight: bold;
+      }
+
+      .green {
+        background: #8bc34a;
+      }
+      .orange {
+        background: #ffc107;
+      }
+
+      button {
+        background: #1e3d59;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #ff6e40;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">
+      Diabetic Retinopathy Detection
+      <a href="/logout">Logout</a>
+      <a href="/">Home</a>
+    </div>
+
+    <div class="upload-box">
+      <h2>Upload Retinal Image</h2>
+
+      <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" /><br /><br />
+
+        <button type="submit">Predict DR Stage</button>
+      </form>
+
+      <div class="result">
+        {% if prediction %} Prediction: {{ prediction }} {% endif %}
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+        <img src="{{ url_for('static',filename='no_dr.jpg') }}" />
+        <div class="label green">No disease visible</div>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static',filename='mild.png') }}" />
+        <div class="label orange">Mild NPDR</div>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static',filename='moderate.jpg') }}" />
+        <div class="label orange">Moderate NPDR</div>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static',filename='severe.jpg') }}" />
+        <div class="label orange">Severe NPDR</div>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static',filename='pdr.jpg') }}" />
+        <div class="label orange">PDR</div>
+      </div>
+    </div>
+  </body>
+</html>

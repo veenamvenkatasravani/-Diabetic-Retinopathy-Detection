@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Diabetic Retinopathy Classification</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Segoe UI;
+        background: url("{{ url_for('static', filename='background.jpg') }}");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .navbar {
+        background: #1e3d59;
+        padding: 15px;
+        color: white;
+        font-size: 20px;
+      }
+
+      .navbar a {
+        float: right;
+        margin-left: 20px;
+        text-decoration: none;
+        color: white;
+        background: #ff6e40;
+        padding: 8px 15px;
+        border-radius: 8px;
+      }
+
+      .container {
+        text-align: center;
+        margin-top: 80px;
+        background: rgba(255, 255, 255, 0.85);
+        width: 70%;
+        margin: auto;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px black;
+      }
+
+      img {
+        width: 250px;
+        margin: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px gray;
+      }
+
+      h2 {
+        color: #1e3d59;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">
+      Diabetic Retinopathy Detection
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+      <a href="/">Home</a>
+    </div>
+
+    <div class="container">
+      <h2>Normal Eye vs DR Eye</h2>
+
+      <img src="{{ url_for('static',filename='normal.jpg') }}" />
+      <img src="{{ url_for('static',filename='dr.jpg') }}" />
+
+      <h3>About Project</h3>
+      <p>This system detects Diabetic Retinopathy stage using Deep Learning.</p>
+    </div>
+  </body>
+</html>

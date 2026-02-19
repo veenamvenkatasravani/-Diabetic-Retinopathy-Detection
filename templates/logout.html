@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Logout</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Segoe UI;
+        background: url("{{ url_for('static', filename='background.jpg') }}");
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+      }
+
+      .box {
+        background: rgba(255, 255, 255, 0.9);
+        width: 350px;
+        margin: 150px auto;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px black;
+      }
+
+      a {
+        text-decoration: none;
+        background: #1e3d59;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+      }
+
+      a:hover {
+        background: #ff6e40;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <h2>Successfully Logged Out!</h2>
+      <br />
+      <a href="/login">Login Again</a>
+    </div>
+  </body>
+</html>
